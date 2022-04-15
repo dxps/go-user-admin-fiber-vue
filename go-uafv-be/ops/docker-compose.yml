@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  go-uafv_pgdb:
+    image: postgres:13-alpine
+    restart: always
+    container_name: go-uafv_pgdb
+    environment:
+      POSTGRES_USER: go-uafv
+      POSTGRES_PASSWORD: go-uafv
+      POSTGRES_DB: go-uafv
+    ports:
+      - "127.0.0.1:5438:5432"
+    volumes:
+      - .pgdata:/pgdata
